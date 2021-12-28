@@ -9,7 +9,8 @@ defmodule EmsTest.Application do
   def start(_type, _args) do
     port = start_web_server()
     children = [
-      {Plug.Cowboy, scheme: :http, plug: EmsTest.Router, port: port}
+      {Plug.Cowboy, scheme: :http, plug: EmsTest.Router, port: port},
+      EmsTest.Repo
       # Starts a worker by calling: EmsTest.Worker.start_link(arg)
       # {EmsTest.Worker, arg}
     ]
